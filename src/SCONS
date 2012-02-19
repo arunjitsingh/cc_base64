@@ -5,19 +5,23 @@ import os
 
 HOME = os.environ.get('HOME')
 AJ_INCLUDES = [os.path.join(HOME, 'include')]
-AJ_LIBS = [os.path.join(HOME, 'lib')]
+AJ_LIBPATHS = [os.path.join(HOME, 'lib')]
 
 COMMON_CCFLAGS = []
 DEBUG_CCFLAGS = ['-g']
 
 INCLUDES = AJ_INCLUDES + ['../src']
+LIBPATHS = AJ_LIBPATHS + ['../build']
 
-encoder_lib = Library(target='base64_encoder',
-                      source=['base64/base64_encoder.h',
-                              'base64_encoder.cc'],
-                      CPPPATH=INCLUDES)
+env = Environment()
+env['STATIC_AND_SHARED_OBJECTS_ARE_THE_SAME'] = True
 
-Program(target='base64_test',
-        source=[encoder_lib,
-                'base64_test.cc'],
-        CPPPATH=INCLUDES)
+encoder_lib = env.SharedLibrary(target='base64_encoder',
+                                source=['base64_encoder.cc'],
+                                CPPPATH=INCLUDES)
+
+env.Program(target='base64_test',
+            source=[encoder_lib,
+                    'base64_test.cc'],
+            CPPPATH=INCLUDES,
+            LIBPATH=LIBPATHS)
