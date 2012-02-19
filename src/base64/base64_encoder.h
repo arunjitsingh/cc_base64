@@ -16,7 +16,7 @@
 
 #include <string>
 
-#include "base64/base64.h"
+#include <base64/base64.h>
 
 _START_AJ_NAMESPACE_
 namespace base64 {
@@ -25,7 +25,6 @@ namespace base64 {
 class Base64Encoder {
  public:
   explicit Base64Encoder(bool use_websafe = false);
-  ~Base64Encoder();
   bool Update(void *data, unsigned int size);
   std::string Final();
  private:

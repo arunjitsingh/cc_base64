@@ -1,4 +1,18 @@
 # Copyright 2012 Arunjit Singh. All Rights Reserved.
 
+import os
+
+
+HOME = os.environ.get('HOME')
+AJ_INCLUDES = [os.path.join(HOME, 'include')]
+AJ_LIBS = [os.path.join(HOME, 'lib')]
+
 COMMON_CCFLAGS = []
 DEBUG_CCFLAGS = ['-g']
+
+INCLUDES = AJ_INCLUDES + ['../src']
+
+Library(target='base64_encoder',
+        source=['base64/base64_encoder.h',
+                'base64_encoder.cc'],
+        CPPPATH=INCLUDES)
