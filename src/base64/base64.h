@@ -1,15 +1,10 @@
 // Copyright 2012 Arunjit Singh. All Rights Reserved.
-/*
- * Description:
- *     Base64 encoding and decoding header file. Declares the base64 namespace.
- * Author:
- *     Arunjit Singh <arunjit@me.com>
- * Licence:
- *     MIT license. This notice must be included in all distributions.
- *     Copyright: 2012 Arunjit Singh (arunjit@me.com).
- *     See: //LICENSE for details.
- *     See: http://www.opensource.org/licenses/mit-license.php for details.
- */
+// Licence: MIT (http://www.opensource.org/licenses/mit-license.php).
+// Redistribution with or without modification must include this notice.
+// Author: Arunjit Singh <arunjit@me.com>
+
+// Common header for Base64 encoding and decoding. Provides the base64 namespace
+// and initializes the base64 alphabet for 2 forms: default and websafe.
 
 #ifndef SRC_BASE64_H_
 #define SRC_BASE64_H_
