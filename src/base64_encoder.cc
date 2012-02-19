@@ -7,7 +7,7 @@ Base64Encoder::Base64Encoder(bool use_websafe) {
   iswebsafe_ = use_websafe;
 }
 
-bool Update(void *data, unsigned int size) {
+bool Update(void *data, size_t size) {
   return false;
 }
 

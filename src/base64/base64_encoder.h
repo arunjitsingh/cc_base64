@@ -25,12 +25,13 @@ namespace base64 {
 class Base64Encoder {
  public:
   explicit Base64Encoder(bool use_websafe = false);
-  bool Update(void *data, unsigned int size);
+  bool Update(void *data, size_t size);
   std::string Final();
  private:
   bool iswebsafe_;
   std::string input_;
   std::string encoded_;
+  size_t size_;
 };
 }
 _END_AJ_NAMESPACE_
