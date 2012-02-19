@@ -12,7 +12,12 @@ DEBUG_CCFLAGS = ['-g']
 
 INCLUDES = AJ_INCLUDES + ['../src']
 
-Library(target='base64_encoder',
-        source=['base64/base64_encoder.h',
-                'base64_encoder.cc'],
+encoder_lib = Library(target='base64_encoder',
+                      source=['base64/base64_encoder.h',
+                              'base64_encoder.cc'],
+                      CPPPATH=INCLUDES)
+
+Program(target='base64_test',
+        source=[encoder_lib,
+                'base64_test.cc'],
         CPPPATH=INCLUDES)
