@@ -16,10 +16,14 @@
 _START_AJ_NAMESPACE_
 
 namespace base64 {
+// Some more types, for ease of use.
+typedef unsigned char byte;
+typedef unsigned int uint;
+
 // Base64 version information.
-const unsigned int kVersionMajor = 1;
-const unsigned int kVersionMinor = 0;
-const unsigned int kVersionPatch = 0;
+const uint kVersionMajor = 1;
+const uint kVersionMinor = 0;
+const uint kVersionPatch = 0;
 
 // The base alphabet used in all Base64 en/de-coding.
 const std::string kBaseAlphabet = ("ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -27,10 +31,12 @@ const std::string kBaseAlphabet = ("ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                                    "0123456789");
 
 // The default alphabet used for Base64 en/de-coding.
-const std::string kDefaultAlphabet = kBaseAlphabet + "+/=";
+const std::string kDefaultAlphabet = kBaseAlphabet + "+/=";48
 
 // A web-safe alphabet for Base64 en/de-coding.
 const std::string kWebSafeAlphabet = kBaseAlphabet + "-_.";
+
+const size_t kBufferSize = 384;
 }
 
 _END_AJ_NAMESPACE_
