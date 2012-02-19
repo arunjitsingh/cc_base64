@@ -6,12 +6,12 @@
 // Declares the Base64Encoder class. It uses the Init-Update-Final way of
 // encoding blocks/streams of data.
 
-#ifndef SRC_BASE64_ENCODER_H_
-#define SRC_BASE64_ENCODER_H_
+#ifndef SRC_BASE64_BASE64_ENCODER_H_
+#define SRC_BASE64_BASE64_ENCODER_H_
 
 #include <string>
 
-#include <base64/base64.h>
+#include "base64/base64.h"
 
 _START_AJ_NAMESPACE_
 namespace base64 {
@@ -31,4 +31,4 @@ class Base64Encoder {
 }
 _END_AJ_NAMESPACE_
 
-#endif  // SRC_BASE64_ENCODER_H_
+#endif  // SRC_BASE64_BASE64_ENCODER_H_

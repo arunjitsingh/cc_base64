@@ -6,8 +6,8 @@
 // Common header for Base64 encoding and decoding. Provides the base64 namespace
 // and initializes the base64 alphabet for 2 forms: default and websafe.
 
-#ifndef SRC_BASE64_H_
-#define SRC_BASE64_H_
+#ifndef SRC_BASE64_BASE64_H_
+#define SRC_BASE64_BASE64_H_
 
 #include <string>
 
@@ -35,4 +35,4 @@ const std::string kWebSafeAlphabet = kBaseAlphabet + "-_.";
 
 _END_AJ_NAMESPACE_
 
-#endif  // SRC_BASE64_H_
+#endif  // SRC_BASE64_BASE64_H_
