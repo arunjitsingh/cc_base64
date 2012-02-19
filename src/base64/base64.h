@@ -31,7 +31,7 @@ const std::string kBaseAlphabet = ("ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                                    "0123456789");
 
 // The default alphabet used for Base64 en/de-coding.
-const std::string kDefaultAlphabet = kBaseAlphabet + "+/=";48
+const std::string kDefaultAlphabet = kBaseAlphabet + "+/=";
 
 // A web-safe alphabet for Base64 en/de-coding.
 const std::string kWebSafeAlphabet = kBaseAlphabet + "-_.";
