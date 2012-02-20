@@ -25,7 +25,7 @@ class Base64Encoder {
   explicit Base64Encoder(bool use_websafe = false);
 
   // Update the input with some data.
-  bool Update(void *data, size_t size);
+  bool Update(const void *data, size_t size);
 
   // Finalize the encoding and return the encoded base64 string.
   std::string Final();

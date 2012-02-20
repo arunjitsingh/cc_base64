@@ -53,8 +53,8 @@ void Base64Encoder::Encode(bool finalize) {
   inputindex_ = 0;
 }
 
-bool Base64Encoder::Update(void *data, size_t size) {
-  byte *bytes = reinterpret_cast<byte *>(data);
+bool Base64Encoder::Update(const void *data, size_t size) {
+  const byte *bytes = reinterpret_cast<const byte *>(data);
   uint i;
   // Put bytes in input_, but only till their count is a multiple of 3.
   for (i = 0; i < size - (size % 3); ++i) {

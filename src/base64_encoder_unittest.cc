@@ -12,7 +12,7 @@
 TEST(Base64EncoderTest, EncodeSingleBlock) {
   std::string input("arunjitsingh");
   ::aj::base64::Base64Encoder enc;
-  enc.Update((void *)input.data(), input.size());
+  enc.Update(reinterpret_cast<const void *>(input.data()), input.size());
 
   std::string expected("YXJ1bmppdHNpbmdo");
 
@@ -23,8 +23,8 @@ TEST(Base64EncoderTest, EncodeTwoBlocks) {
   std::string input1("arunjit");
   std::string input2("singh");
   ::aj::base64::Base64Encoder enc;
-  enc.Update((void *)input1.data(), input1.size());
-  enc.Update((void *)input2.data(), input2.size());
+  enc.Update(reinterpret_cast<const void *>(input1.data()), input1.size());
+  enc.Update(reinterpret_cast<const void *>(input2.data()), input2.size());
 
   std::string expected("YXJ1bmppdHNpbmdo");
 
@@ -43,15 +43,15 @@ TEST(Base64EncoderTest, EncodeMultipleBlocks) {
   std::string input8("lazy ");
   std::string input9("dog");
   ::aj::base64::Base64Encoder enc;
-  enc.Update((void *)input1.data(), input1.size());
-  enc.Update((void *)input2.data(), input2.size());
-  enc.Update((void *)input3.data(), input3.size());
-  enc.Update((void *)input4.data(), input4.size());
-  enc.Update((void *)input5.data(), input5.size());
-  enc.Update((void *)input6.data(), input6.size());
-  enc.Update((void *)input7.data(), input7.size());
-  enc.Update((void *)input8.data(), input8.size());
-  enc.Update((void *)input9.data(), input9.size());
+  enc.Update(reinterpret_cast<const void *>(input1.data()), input1.size());
+  enc.Update(reinterpret_cast<const void *>(input2.data()), input2.size());
+  enc.Update(reinterpret_cast<const void *>(input3.data()), input3.size());
+  enc.Update(reinterpret_cast<const void *>(input4.data()), input4.size());
+  enc.Update(reinterpret_cast<const void *>(input5.data()), input5.size());
+  enc.Update(reinterpret_cast<const void *>(input6.data()), input6.size());
+  enc.Update(reinterpret_cast<const void *>(input7.data()), input7.size());
+  enc.Update(reinterpret_cast<const void *>(input8.data()), input8.size());
+  enc.Update(reinterpret_cast<const void *>(input9.data()), input9.size());
 
   std::string expected("VGhlIHF1aWNrIGJyb3duIGZveCBqdW"
                        "1wZWQgb3ZlciB0aGUgbGF6eSBkb2c=");
