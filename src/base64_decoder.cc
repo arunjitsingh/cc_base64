@@ -43,7 +43,7 @@ void Base64Decoder::Decode(bool finalize) {
   }
   byte c1, c2, c3, c4, e1, e2, e3;
   uint i = 0;
-  while (i < inputindex_) {
+  while (i < inputindex_ - (inputindex_ % 4)) {
     c1 = GetDecodedByte(input_[i++]);
     c2 = GetDecodedByte(input_[i++]);
     c3 = GetDecodedByte(input_[i++]);
@@ -64,26 +64,22 @@ void Base64Decoder::Decode(bool finalize) {
       }
     }
   }
-  inputindex_ = 0;
+  inputindex_ = inputindex_ % 4;
 }
 
 bool Base64Decoder::Update(std::string data) {
   size_t size = data.size();
   uint i;
   // Put bytes in input_, but only till their count is a multiple of 4.
-  for (i = 0; i < size - (size % 4); ++i) {
+  for (i = 0; i < size; ++i) {
     input_[inputindex_++] = data[i];
     if (inputindex_ == kBufferSize) {
       Decode();
     }
   }
-  // Decode input_ only if inputindex_ hasn't been reset.
-  if (inputindex_) {
+  // Decode input_ only if input_ has enough bytes.
+  if (inputindex_ && inputindex_ % 4 == 0) {
     Decode();
-  }
-  // Put remaining bytes in input_. There can only be < 4 bytes left.
-  for (; i < size; ++i) {
-    input_[inputindex_++] = data[i];
   }
   return true;
 }

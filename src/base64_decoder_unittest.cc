@@ -8,10 +8,22 @@
 #include <base64/base64_decoder.h>
 #include <gtest/gtest.h>
 
-TEST(Base64EncoderTest, EncodeSingleBlock) {
+TEST(Base64DecoderTest, DecodeSingleBlock) {
   std::string input("YXJ1bmppdHNpbmdo");
   ::aj::base64::Base64Decoder dec;
   dec.Update(input);
+
+  std::string expected("arunjitsingh");
+
+  EXPECT_EQ(expected, dec.Final());
+}
+
+TEST(Base64DecoderTest, DecodeTwoBlocks) {
+  std::string input1("YXJ1bmppd");
+  std::string input2("HNpbmdo");
+  ::aj::base64::Base64Decoder dec;
+  dec.Update(input1);
+  dec.Update(input2);
 
   std::string expected("arunjitsingh");
 
