@@ -3,8 +3,7 @@
 // Redistribution with or without modification must include this notice.
 // Author: Arunjit Singh <arunjit@me.com>
 
-// Test for base64 en/de-coding. Not the actual unittest, but something to test
-// if I'm on the right track.
+// Unittest for Base64Encoder. Uses GoogleTest.
 
 #include <base64/base64_encoder.h>
 #include <gtest/gtest.h>
