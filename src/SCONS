@@ -51,3 +51,11 @@ env.Program(target='base64_decoder_unittest',
                     'base64_decoder_unittest.cc'],
             CPPPATH=INCLUDES + GTEST_INC,
             LIBPATH=LIBPATHS)
+
+env.Program(target='base64_test',
+            source=[encoder_lib,
+                    decoder_lib,
+                    gtest_lib,
+                    'base64_test.cc'],
+            CPPPATH=INCLUDES + GTEST_INC,
+            LIBPATH=LIBPATHS)
