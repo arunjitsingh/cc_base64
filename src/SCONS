@@ -6,9 +6,9 @@ import os
 SYS_INCLUDES = ['/usr/include', '/usr/local/include']
 SYS_LIBPATHS = ['/usr/lib', '/usr/local/lib']
 
-HOME = os.environ.get('HOME')
-AJ_INCLUDES = [os.path.join(HOME, 'include')]
-AJ_LIBPATHS = [os.path.join(HOME, 'lib')]
+DEV_ROOT = os.environ.get('DEV_ROOT')
+AJ_INCLUDES = [os.path.join(DEV_ROOT, 'include')]
+AJ_LIBPATHS = [os.path.join(DEV_ROOT, 'lib')]
 
 COMMON_CCFLAGS = []
 DEBUG_CCFLAGS = ['-g']
@@ -30,7 +30,7 @@ decoder_lib = env.SharedLibrary(target='base64_decoder',
 
 
 # Testing
-GTEST_DIR = '/usr/local/google/googletest'
+GTEST_DIR = os.path.join(DEV_ROOT, 'src', 'ext', 'google', 'googletest')
 GTEST_SRC = os.path.join(GTEST_DIR, 'src', 'gtest-all.cc')
 GTEST_INC = [os.path.join(GTEST_DIR, 'include'), GTEST_DIR]
 
