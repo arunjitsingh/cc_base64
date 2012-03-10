@@ -1,61 +1,23 @@
 # Copyright 2012 Arunjit Singh. All Rights Reserved.
-
-import os
-
-
-SYS_INCLUDES = ['/usr/include', '/usr/local/include']
-SYS_LIBPATHS = ['/usr/lib', '/usr/local/lib']
-
-DEV_ROOT = os.environ.get('DEV_ROOT')
-AJ_INCLUDES = [os.path.join(DEV_ROOT, 'include')]
-AJ_LIBPATHS = [os.path.join(DEV_ROOT, 'lib')]
-
-COMMON_CCFLAGS = []
-DEBUG_CCFLAGS = ['-g']
-
-INCLUDES = SYS_INCLUDES + AJ_INCLUDES + ['../src']
-LIBPATHS = SYS_LIBPATHS + AJ_LIBPATHS + ['../build']
-
-env = Environment()
-env['STATIC_AND_SHARED_OBJECTS_ARE_THE_SAME'] = True
+from cc_build import cc_library, cc_test
 
 # The libraries
-encoder_lib = env.SharedLibrary(target='base64_encoder',
-                                source=['base64_encoder.cc'],
-                                CPPPATH=INCLUDES)
+encoder_lib = cc_library(target='base64_encoder',
+                         source=['base64_encoder.cc'])
 
-decoder_lib = env.SharedLibrary(target='base64_decoder',
-                                source=['base64_decoder.cc'],
-                                CPPPATH=INCLUDES)
+decoder_lib = cc_library(target='base64_decoder',
+                         source=['base64_decoder.cc'])
 
 
-# Testing
-GTEST_DIR = os.path.join(DEV_ROOT, 'src', 'ext', 'google', 'googletest')
-GTEST_SRC = os.path.join(GTEST_DIR, 'src', 'gtest-all.cc')
-GTEST_INC = [os.path.join(GTEST_DIR, 'include'), GTEST_DIR]
+cc_test(target='base64_encoder_unittest',
+        source=[encoder_lib,
+                'base64_encoder_unittest.cc'])
 
-gtest_lib = env.SharedLibrary(target='gtest_lib',
-                              source=[GTEST_SRC],
-                              CPPPATH=SYS_INCLUDES + GTEST_INC)
+cc_test(target='base64_decoder_unittest',
+        source=[decoder_lib,
+                'base64_decoder_unittest.cc'])
 
-env.Program(target='base64_encoder_unittest',
-            source=[encoder_lib,
-                    gtest_lib,
-                    'base64_encoder_unittest.cc'],
-            CPPPATH=INCLUDES + GTEST_INC,
-            LIBPATH=LIBPATHS)
-
-env.Program(target='base64_decoder_unittest',
-            source=[decoder_lib,
-                    gtest_lib,
-                    'base64_decoder_unittest.cc'],
-            CPPPATH=INCLUDES + GTEST_INC,
-            LIBPATH=LIBPATHS)
-
-env.Program(target='base64_test',
-            source=[encoder_lib,
-                    decoder_lib,
-                    gtest_lib,
-                    'base64_test.cc'],
-            CPPPATH=INCLUDES + GTEST_INC,
-            LIBPATH=LIBPATHS)
+cc_test(target='base64_test',
+        source=[encoder_lib,
+                decoder_lib,
+                'base64_test.cc'])
