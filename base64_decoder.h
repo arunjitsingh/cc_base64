@@ -6,8 +6,8 @@
 // Declares the Base64Decoder class. It uses the Init-Update-Final way of
 // decoding blocks/streams of base64 strings.
 
-#ifndef SRC_BASE64_BASE64_DECODER_H_
-#define SRC_BASE64_BASE64_DECODER_H_
+#ifndef CC_BASE64_BASE64_DECODER_H_
+#define CC_BASE64_BASE64_DECODER_H_
 
 #include <string>
 #include <sstream>
@@ -44,4 +44,4 @@ class Base64Decoder {
 }
 _END_AJ_NAMESPACE_
 
-#endif  // SRC_BASE64_BASE64_DECODER_H_
+#endif  // CC_BASE64_BASE64_DECODER_H_

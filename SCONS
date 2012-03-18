@@ -1,6 +1,7 @@
 # Copyright 2012 Arunjit Singh. All Rights Reserved.
 from cc_build import cc_library, cc_test
 
+
 # The libraries
 encoder_lib = cc_library(target='base64_encoder',
                          source=['base64_encoder.cc'])
@@ -9,6 +10,7 @@ decoder_lib = cc_library(target='base64_decoder',
                          source=['base64_decoder.cc'])
 
 
+# The tests
 cc_test(target='base64_encoder_unittest',
         source=[encoder_lib,
                 'base64_encoder_unittest.cc'])

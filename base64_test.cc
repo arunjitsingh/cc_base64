@@ -5,9 +5,11 @@
 
 // Test for Base64 encoding and decoding. Uses GoogleTest.
 
-#include <base64/base64_encoder.h>
-#include <base64/base64_decoder.h>
 #include <gtest/gtest.h>
+
+#include "base64/base64_encoder.h"
+#include "base64/base64_decoder.h"
+
 
 TEST(Base64Test, EncodeDecodeString) {
   std::string str("The quick brown fox jumped over the lazy, cross eyed frog");

@@ -5,8 +5,9 @@
 
 // Unittest for Base64Encoder. Uses GoogleTest.
 
-#include <base64/base64_encoder.h>
 #include <gtest/gtest.h>
+
+#include "base64/base64_encoder.h"
 
 TEST(Base64EncoderTest, EncodeSingleBlock) {
   std::string input("arunjitsingh");
