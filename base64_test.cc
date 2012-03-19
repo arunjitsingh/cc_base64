@@ -7,8 +7,8 @@
 
 #include <gtest/gtest.h>
 
-#include "base64/base64_encoder.h"
-#include "base64/base64_decoder.h"
+#include "cc/base64/base64_encoder.h"
+#include "cc/base64/base64_decoder.h"
 
 
 TEST(Base64Test, EncodeDecodeString) {

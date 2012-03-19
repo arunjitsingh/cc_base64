@@ -5,7 +5,7 @@
 
 // Implementation of the Base64Encoder class.
 
-#include "base64/base64_encoder.h"
+#include "cc/base64/base64_encoder.h"
 
 _START_AJ_NAMESPACE_
 namespace base64 {
