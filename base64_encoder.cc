@@ -79,6 +79,5 @@ std::string Base64Encoder::Final() {
   Encode(true);
   return encoded_.str();
 }
-
-}
+}  // namespace base64
 _END_AJ_NAMESPACE_

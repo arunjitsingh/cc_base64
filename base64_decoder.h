@@ -34,7 +34,7 @@ class Base64Decoder {
   size_t size() const {return size_;}
  private:
   byte GetDecodedByte(byte b);
-  void Decode(bool finalize=false);
+  void Decode(bool finalize = false);
 
   byte *input_;
   uint inputindex_;

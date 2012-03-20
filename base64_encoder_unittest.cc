@@ -32,7 +32,7 @@ TEST(Base64EncoderTest, EncodeTwoBlocks) {
 }
 
 TEST(Base64EncoderTest, EncodeMultipleBlocks) {
-  //"The quick brown fox jumped over the lazy dog"
+  // "The quick brown fox jumped over the lazy dog"
   std::string input1("The ");
   std::string input2("quick ");
   std::string input3("brown ");

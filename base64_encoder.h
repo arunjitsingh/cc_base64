@@ -33,7 +33,7 @@ class Base64Encoder {
   // Get the size of the encoded block so far.
   size_t size() const {return size_;}
  private:
-  void Encode(bool finalize=false);
+  void Encode(bool finalize = false);
 
   bool iswebsafe_;
   byte *input_;

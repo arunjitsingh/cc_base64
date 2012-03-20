@@ -89,6 +89,5 @@ std::string Base64Decoder::Final() {
   Decode(true);
   return decoded_.str();
 }
-
-}
+}  // namespace base64
 _END_AJ_NAMESPACE_
