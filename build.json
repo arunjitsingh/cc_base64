@@ -1,0 +1,26 @@
+{
+  "encoder": {
+    "type": "library",
+    "srcs": ["base64_encoder.cc"]
+  },
+  "encoder_unittest": {
+    "type": "test",
+    "srcs": ["base64_encoder_unittest.cc"],
+    "deps": [":encoder"]
+  },
+  "decoder": {
+    "type": "library",
+    "srcs": ["base64_decoder.cc"]
+  },
+  "decoder_unittest": {
+    "type": "test",
+    "srcs": ["base64_decoder_unittest.cc"],
+    "deps": [":decoder"]
+  },
+  "combined_test": {
+    "type": "test",
+    "srcs": ["base64_test.cc"]
+    "deps": [":encoder",
+             ":decoder"]
+  }
+}
