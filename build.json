@@ -4,7 +4,7 @@
     "srcs": ["base64_encoder.cc"]
   },
   "encoder_unittest": {
-    "type": "binary",
+    "type": "test",
     "srcs": ["base64_encoder_unittest.cc"],
     "deps": [":encoder",
              "//cc/testing:gtest"]
@@ -14,13 +14,13 @@
     "srcs": ["base64_decoder.cc"]
   },
   "decoder_unittest": {
-    "type": "binary",
+    "type": "test",
     "srcs": ["base64_decoder_unittest.cc"],
     "deps": [":decoder",
              "//cc/testing:gtest"]
   },
   "combined_test": {
-    "type": "binary",
+    "type": "test",
     "srcs": ["base64_test.cc"],
     "deps": [":encoder",
              ":decoder",
