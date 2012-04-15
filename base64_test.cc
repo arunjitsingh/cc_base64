@@ -5,10 +5,9 @@
 
 // Test for Base64 encoding and decoding. Uses GoogleTest.
 
-#include <gtest/gtest.h>
-
 #include "cc/base64/base64_encoder.h"
 #include "cc/base64/base64_decoder.h"
+#include "cc/testing/gtest.h"
 
 
 TEST(Base64Test, EncodeDecodeString) {

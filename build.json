@@ -4,23 +4,26 @@
     "srcs": ["base64_encoder.cc"]
   },
   "encoder_unittest": {
-    "type": "test",
+    "type": "binary",
     "srcs": ["base64_encoder_unittest.cc"],
-    "deps": [":encoder"]
+    "deps": [":encoder",
+             "//cc/testing:gtest"]
   },
   "decoder": {
     "type": "library",
     "srcs": ["base64_decoder.cc"]
   },
   "decoder_unittest": {
-    "type": "test",
+    "type": "binary",
     "srcs": ["base64_decoder_unittest.cc"],
-    "deps": [":decoder"]
+    "deps": [":decoder",
+             "//cc/testing:gtest"]
   },
   "combined_test": {
-    "type": "test",
-    "srcs": ["base64_test.cc"]
+    "type": "binary",
+    "srcs": ["base64_test.cc"],
     "deps": [":encoder",
-             ":decoder"]
+             ":decoder",
+             "//cc/testing:gtest"]
   }
 }
