@@ -7,7 +7,7 @@
 
 
 #include "cc/base64/base64_encoder.h"
-#include "cc/testing/gtest.h"
+#include "testing/cc/gtest.h"
 
 TEST(Base64EncoderTest, EncodeSingleBlock) {
   std::string input("arunjitsingh");

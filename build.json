@@ -7,7 +7,7 @@
     "type": "test",
     "srcs": ["base64_encoder_unittest.cc"],
     "deps": [":encoder",
-             "//cc/testing:gtest"]
+             "//testing/cc:gtest"]
   },
   "decoder": {
     "type": "library",
@@ -17,13 +17,13 @@
     "type": "test",
     "srcs": ["base64_decoder_unittest.cc"],
     "deps": [":decoder",
-             "//cc/testing:gtest"]
+             "//testing/cc:gtest"]
   },
   "combined_test": {
     "type": "test",
     "srcs": ["base64_test.cc"],
     "deps": [":encoder",
              ":decoder",
-             "//cc/testing:gtest"]
+             "//testing/cc:gtest"]
   }
 }
